@@ -79,24 +79,27 @@
     <button class="button" id="customizeBtn" onclick="handleClick('CUSTOMIZE')"></button>
     <button class="button" id="shopBtn" onclick="handleClick('SHOP')"></button>
   </div>
-
-  <script>
-    window.addEventListener("load", () => {
       // Telegram full screen
-      if (window.Telegram && window.Telegram.WebApp) {
-        window.Telegram.WebApp.expand();
-      }
-
-      // Показати гру через 2 сек
-      setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("game").style.display = "block";
-      }, 2000);
-    });
-
-    function handleClick(name) {
-      alert(`You clicked: ${name}`);
+      <script>
+  window.addEventListener("load", () => {
+    // Telegram Mini App: повна ініціалізація
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
+      tg.ready(); // повідомляє Telegram, що додаток готовий
+      tg.expand(); // просить розгорнути на весь екран
     }
+
+    // Затримка на завантаження
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("game").style.display = "block";
+    }, 2000);
+  });
+
+  function handleClick(name) {
+    alert(`You clicked: ${name}`);
+  }
+</script>
   </script>
 </body>
 </html>
