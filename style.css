@@ -1,64 +1,92 @@
-/* попередній стиль + доданий стиль модального вікна */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-.modal-content {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #8cc3e8;
+  background-size: cover;
 }
 
-.progress-bar {
-  width: 100%;
-  height: 20px;
-  background: #ddd;
-  border-radius: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-#progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(to right, #ff9900, #ffaa00);
-  transition: width 0.3s ease;
-}
-
-.wrapper {
+.game-wrapper {
   max-width: 420px;
-  width: 100%;
-  margin: 0 auto;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
 }
 
-.top-bar {
+.hud {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
+  margin-bottom: 10px;
+}
+
+.hud-item {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+}
+
+.hud-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.character-section {
+  margin: 20px 0;
+}
+
+.character-img {
+  width: 200px;
+  height: auto;
+}
+
+.stage-info {
+  background: #153252;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
   margin-top: 10px;
+  font-weight: bold;
+}
+
+.play-button {
+  margin: 20px 0;
+  padding: 16px 40px;
+  background: #ffaa00;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #cc8800;
 }
 
 .bottom-menu {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%;
   background: #1b2a3a;
+  border-radius: 14px;
   padding: 10px;
-  border-radius: 16px;
 }
 
-.menu-item {
-  width: 30%;
-  text-align: center;
-  margin: 8px 0;
+.menu-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.menu-button img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px;
+}
+
+.menu-button .label {
+  font-size: 12px;
 }

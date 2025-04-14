@@ -3,66 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flappy WebApp</title>
+  <title>Flappy Start</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrapper">
-
-  <!-- Головне меню -->
-  <div id="main-menu">
-    <div class="top-bar">
-      <div class="hud-item"><span class="icon">🪙</span><span id="coins">1,500</span></div>
-      <div class="hud-item"><span class="icon">⚡</span><span id="passive">220</span></div>
-      <div class="hud-item"><span class="icon">🔥</span><span id="level">Level 3</span></div>
-         <div class="hud-item"><span class="icon">🏁</span><span id="total-points">0</span></div>
+  <div class="game-wrapper">
+    <div class="hud">
+      <div class="hud-item"><img src="icons/coin.png"><span id="coin-count">0</span></div>
+      <div class="hud-item"><img src="icons/bolt.png"><span id="energy-count">0</span></div>
+      <div class="hud-item"><img src="icons/fire.png"><span id="level-indicator">Level 1</span></div>
     </div>
 
-    <div class="character-container">
-      <div class="character-image"></div>
+    <div class="character-section">
+      <img src="images/bird-baby.png" class="character-img" alt="Bird">
       <div class="stage-info">
-        <div>Stage: Teen</div>
-        <div>Level: 12</div>
+        <div>Stage: Baby</div>
+        <div>Level: 1</div>
       </div>
     </div>
 
     <button class="play-button">PLAY</button>
 
     <div class="bottom-menu">
-      <div class="menu-item">👕<div class="label">CUSTOMIZE</div></div>
-      <div class="menu-item">📜<div class="label">QUESTS</div></div>
-      <div class="menu-item">😊<div class="label">FRIENDS</div></div>
-      <div class="menu-item">🏆<div class="label">LEADERBOARD</div></div>
-      <div class="menu-item">🛒<div class="label">SHOP</div></div>
-      <div class="menu-item">🐦<div class="label">BIRD</div></div>
-    <div class="progress-bar">
-        <div id="progress-fill"></div>
-      </div>
+      <div class="menu-button"><img src="icons/customize.png"><div class="label">CUSTOMIZE</div></div>
+      <div class="menu-button"><img src="icons/quests.png"><div class="label">QUESTS</div></div>
+      <div class="menu-button"><img src="icons/bolt.png"><div class="label">FRIENDS</div></div>
+      <div class="menu-button"><img src="icons/fire.png"><div class="label">LEADERBOARD</div></div>
+      <div class="menu-button"><img src="icons/coin.png"><div class="label">SHOP</div></div>
     </div>
   </div>
-
-  <!-- Ігровий екран -->
-  <div id="game-screen" style="display: none;">
-    <button id="back-to-menu">← Back to Menu</button>
-    <canvas id="gameCanvas" width="400" height="600"></canvas>
-  </div>
-
-  <!-- Модальне вікно для вкладки Bird -->
-  <div id="bird-modal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <h2>Bird Progress</h2>
-      <p>Total Points: <span id="bird-points">0</span></p>
-      <p>Bird Level: <span id="bird-level">1</span> / 3</p>
-      <button onclick="closeBirdModal()">Close</button>
-    <div class="progress-bar">
-        <div id="progress-fill"></div>
-      </div>
-    </div>
-  </div>
-
-  </div>
-  <script src="storage.js"></script>
-  <script src="script.js"></script>
-  <script src="game.js"></script>
 </body>
 </html>
