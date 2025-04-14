@@ -14,12 +14,29 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
+    }
+    .loader-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('loading.png');
+      background-size: cover;
+      background-position: center;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
     }
     .game-screen {
+      display: none;
       position: relative;
-      width: 375px;
-      height: 667px;
-      background-image: url('menu.png'); /* Заміни на шлях до твого зображення */
+      width: 100vw;
+      height: 100vh;
+      background-image: url('menu.png');
       background-size: cover;
       background-position: center;
     }
@@ -53,13 +70,30 @@
   </style>
 </head>
 <body>
-  <div class="game-screen">
+  <div class="loader-screen" id="loader">
+    <h1 style="color: white; text-shadow: 1px 1px 2px black;">Loading Bird Game...</h1>
+  </div>
+
+  <div class="game-screen" id="game">
     <button class="button" id="playBtn" onclick="handleClick('PLAY')"></button>
     <button class="button" id="customizeBtn" onclick="handleClick('CUSTOMIZE')"></button>
     <button class="button" id="shopBtn" onclick="handleClick('SHOP')"></button>
   </div>
 
   <script>
+    window.addEventListener("load", () => {
+      // Telegram full screen
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.expand();
+      }
+
+      // Показати гру через 2 сек
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("game").style.display = "block";
+      }, 2000);
+    });
+
     function handleClick(name) {
       alert(`You clicked: ${name}`);
     }
