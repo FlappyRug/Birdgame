@@ -1,44 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Loading...</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    #splash {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('loading.png') no-repeat center center;
-      background-size: contain;
-    }
-  </style>
-</head>
-<body>
-  <div id="splash"></div>
-
-  <script>
-    window.addEventListener("load", () => {
-      if (window.Telegram && window.Telegram.WebApp) {
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.expand();
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bird Game MiniApp</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
       }
+      .loader-screen,
+      .game-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .loader-screen {
+        background-image: url('loading.png');
+        z-index: 10;
+      }
+      .game-screen {
+        background-image: url('menu.png');
+        display: none;
+      }
+      .button {
+        position: absolute;
+        width: 120px;
+        height: 40px;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        opacity: 0;
+      }
+      #playBtn {
+        top: 510px;
+        left: 127px;
+      }
+      #customizeBtn {
+        bottom: 20px;
+        left: 10px;
+        width: 60px;
+        height: 60px;
+      }
+      #shopBtn {
+        bottom: 20px;
+        right: 10px;
+        width: 60px;
+        height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader-screen" id="loader">
+      <h1 style="color: white; text-shadow: 1px 1px 2px black;">Loading Bird Game...</h1>
+    </div>
 
-      // Через 2 секунди перекидаємо в головне меню
-      setTimeout(() => {
-        window.location.href = "main.html";
-      }, 2000);
-    });
-  </script>
-</body>
+    <div class="game-screen" id="game">
+      <button class="button" id="playBtn" onclick="handleClick('PLAY')"></button>
+      <button class="button" id="customizeBtn" onclick="handleClick('CUSTOMIZE')"></button>
+      <button class="button" id="shopBtn" onclick="handleClick('SHOP')"></button>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        if (window.Telegram && window.Telegram.WebApp) {
+          const tg = window.Telegram.WebApp;
+          tg.ready();
+          tg.expand();
+        }
+
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("game").style.display = "block";
+        }, 2000);
+      });
+
+      function handleClick(name) {
+        alert(`You clicked: ${name}`);
+      }
+    </script>
+  </body>
 </html>
+
