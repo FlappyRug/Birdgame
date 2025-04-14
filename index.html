@@ -1,1 +1,29 @@
-<!DOCTYPE html><html><head><title>Flappy Main</title></head><body>Main Menu</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flappy Bird Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="top-bar">
+        <div class="top-icon"><img src="icons/coin.png"><span id="coins">0</span></div>
+        <div class="top-icon"><img src="icons/energy.png"><span id="energy">0</span></div>
+        <div class="top-icon"><img src="icons/fire.png"><span id="level">Level 1</span></div>
+    </div>
+    <div id="main">
+        <img id="pedestal" src="images/pedestal.png">
+        <img id="bird" src="images/bird.png">
+        <div id="stage-info">Stage: Baby<br>Level: 1</div>
+        <button id="play-btn" onclick="startGame()">PLAY</button>
+    </div>
+    <div id="bottom-menu">
+        <div class="menu-btn"><img src="icons/customize.png"><span>CUSTOMIZE</span></div>
+        <div class="menu-btn"><img src="icons/quests.png"><span>QUESTS</span></div>
+        <div class="menu-btn"><img src="icons/friends.png"><span>FRIENDS</span></div>
+        <div class="menu-btn"><img src="icons/leaderboard.png"><span>LEADERBOARD</span></div>
+        <div class="menu-btn"><img src="icons/shop.png"><span>SHOP</span></div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
