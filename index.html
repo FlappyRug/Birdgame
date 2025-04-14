@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Bird Game MiniApp</title>
   <style>
     html, body {
@@ -10,9 +10,9 @@
       padding: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
       font-family: sans-serif;
       background-color: #bfefff;
-      overflow: hidden;
     }
     .loader-screen {
       display: flex;
@@ -20,7 +20,8 @@
       align-items: center;
       justify-content: center;
       background-image: url('loading.png');
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
       width: 100vw;
       height: 100vh;
@@ -31,14 +32,13 @@
     }
     .game-screen {
       display: none;
-      position: absolute;
+      position: relative;
       width: 100vw;
       height: 100vh;
       background-image: url('menu.png');
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
-      top: 0;
-      left: 0;
     }
     .button {
       position: absolute;
@@ -81,14 +81,15 @@
   </div>
 
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", () => {
+      // Telegram API
       if (window.Telegram && window.Telegram.WebApp) {
         const tg = window.Telegram.WebApp;
         tg.ready();
-        tg.expand();
-        console.log("Is expanded:", tg.isExpanded);
+        tg.expand(); // просимо Telegram розгорнути мінізастосунок
       }
 
+      // Затримка для завантаження
       setTimeout(() => {
         document.getElementById("loader").style.display = "none";
         document.getElementById("game").style.display = "block";
