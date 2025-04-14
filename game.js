@@ -12,8 +12,8 @@ function startGame() {
     width: 30,
     height: 30,
     velocity: 0,
-    gravity: 0.6,
-    jumpStrength: -10
+    gravity: 0.4,
+    jumpStrength: -8
   };
 
   pipes = [];
@@ -50,7 +50,7 @@ function drawPipes() {
 
 function updatePipes() {
   if (frame % 100 === 0) {
-    const gap = 140;
+    const gap = 180;
     const top = Math.floor(Math.random() * 250) + 50;
     pipes.push({
       x: canvas.width,
@@ -62,7 +62,7 @@ function updatePipes() {
   }
 
   pipes.forEach(pipe => {
-    pipe.x -= 2;
+    pipe.x -= 1.5;
   });
 
   pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);

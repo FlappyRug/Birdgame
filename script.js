@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuItems = document.querySelectorAll(".menu-item");
   menuItems.forEach((item) => {
     item.addEventListener("click", () => {
-      const label = item.querySelector(".label").textContent;
+      const label = item.querySelector(".label").textContent.trim().toLowerCase();
       console.log(`${label} button clicked`);
 
     if (label === "LEADERBOARD") {
