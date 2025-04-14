@@ -22,11 +22,31 @@ document.addEventListener("DOMContentLoaded", () => {
       const label = item.querySelector(".label").textContent;
       console.log(`${label} button clicked`);
 
+    if (label === "LEADERBOARD") {
+      const progress = getProgress();
+      document.getElementById("leaderboard-points").textContent = progress.totalPoints;
+      document.getElementById("leaderboard-level").textContent = progress.birdLevel;
+      document.getElementById("leaderboard-modal").style.display = "flex";
+    }
+
+    if (label === "BIRD") {
+      const progress = getProgress();
+      document.getElementById("bird-points").textContent = progress.totalPoints;
+      document.getElementById("bird-level").textContent = progress.birdLevel;
+      document.getElementById("bird-modal").style.display = "flex";
+      const percent = Math.min(100, (progress.totalPoints / 1500) * 100);
+      document.getElementById("progress-fill").style.width = percent + "%";
+    }
+
+
       if (label === "BIRD") {
         const progress = getProgress();
+  document.getElementById("total-points").textContent = progress.totalPoints;
         document.getElementById("bird-points").textContent = progress.totalPoints;
         document.getElementById("bird-level").textContent = progress.birdLevel;
         document.getElementById("bird-modal").style.display = "flex";
+    const percent = Math.min(100, (progress.totalPoints / 1500) * 100);
+    document.getElementById("progress-fill").style.width = percent + "%";
       }
     });
   });
@@ -38,4 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function closeBirdModal() {
   document.getElementById("bird-modal").style.display = "none";
+}
+
+
+function closeLeaderboard() {
+  document.getElementById("leaderboard-modal").style.display = "none";
 }
