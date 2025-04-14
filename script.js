@@ -21,6 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     item.addEventListener("click", () => {
       const label = item.querySelector(".label").textContent;
       console.log(`${label} button clicked`);
+
+      if (label === "BIRD") {
+        const progress = getProgress();
+        document.getElementById("bird-points").textContent = progress.totalPoints;
+        document.getElementById("bird-level").textContent = progress.birdLevel;
+        document.getElementById("bird-modal").style.display = "flex";
+      }
     });
   });
 
@@ -28,3 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Telegram.WebApp.ready();
   }
 });
+
+function closeBirdModal() {
+  document.getElementById("bird-modal").style.display = "none";
+}

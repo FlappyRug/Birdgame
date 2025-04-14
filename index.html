@@ -32,6 +32,7 @@
       <div class="menu-item">😊<div class="label">FRIENDS</div></div>
       <div class="menu-item">🏆<div class="label">LEADERBOARD</div></div>
       <div class="menu-item">🛒<div class="label">SHOP</div></div>
+      <div class="menu-item">🐦<div class="label">BIRD</div></div>
     </div>
   </div>
 
@@ -41,6 +42,17 @@
     <canvas id="gameCanvas" width="400" height="600"></canvas>
   </div>
 
+  <!-- Модальне вікно для вкладки Bird -->
+  <div id="bird-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Bird Progress</h2>
+      <p>Total Points: <span id="bird-points">0</span></p>
+      <p>Bird Level: <span id="bird-level">1</span> / 3</p>
+      <button onclick="closeBirdModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="storage.js"></script>
   <script src="script.js"></script>
   <script src="game.js"></script>
 </body>
