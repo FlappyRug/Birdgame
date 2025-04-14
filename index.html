@@ -1,96 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bird Game MiniApp</title>
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        background-color: #000;
-      }
-      .loader-screen,
-      .game-screen {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-      .loader-screen {
-        background-image: url('loading.png');
-        z-index: 10;
-      }
-      .game-screen {
-        background-image: url('menu.png');
-        display: none;
-      }
-      .button {
-        position: absolute;
-        width: 120px;
-        height: 40px;
-        font-weight: bold;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        opacity: 0;
-      }
-      #playBtn {
-        top: 510px;
-        left: 127px;
-      }
-      #customizeBtn {
-        bottom: 20px;
-        left: 10px;
-        width: 60px;
-        height: 60px;
-      }
-      #shopBtn {
-        bottom: 20px;
-        right: 10px;
-        width: 60px;
-        height: 60px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="loader-screen" id="loader">
-      <h1 style="color: white; text-shadow: 1px 1px 2px black;">Loading Bird Game...</h1>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bird Game MiniApp</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #bfefff;
+    }
 
-    <div class="game-screen" id="game">
-      <button class="button" id="playBtn" onclick="handleClick('PLAY')"></button>
-      <button class="button" id="customizeBtn" onclick="handleClick('CUSTOMIZE')"></button>
-      <button class="button" id="shopBtn" onclick="handleClick('SHOP')"></button>
-    </div>
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
 
-    <script>
-      window.addEventListener("load", () => {
-        if (window.Telegram && window.Telegram.WebApp) {
-          const tg = window.Telegram.WebApp;
-          tg.ready();
-          tg.expand();
-        }
+    .menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: url('menu.png') no-repeat center center;
+      background-size: contain;
+    }
 
-        setTimeout(() => {
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("game").style.display = "block";
-        }, 2000);
+    .menu button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu" id="mainMenu">
+    <button onclick="startGame()">PLAY</button>
+    <button onclick="alert('Customize coming soon')">CUSTOMIZE</button>
+    <button onclick="alert('Quests coming soon')">QUESTS</button>
+  </div>
+
+  <canvas id="gameCanvas" width="360" height="640" class="hidden"></canvas>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let bird = {
+      x: 50,
+      y: 150,
+      width: 40,
+      height: 40,
+      gravity: 1.5,
+      lift: -20,
+      velocity: 0,
+    };
+
+    let pipes = [];
+    let gameRunning = false;
+
+    function drawBird() {
+      ctx.fillStyle = "orange";
+      ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
+    }
+
+    function drawPipe(pipe) {
+      ctx.fillStyle = "green";
+      ctx.fillRect(pipe.x, 0, pipe.width, pipe.top);
+      ctx.fillRect(pipe.x, pipe.bottom, pipe.width, canvas.height - pipe.bottom);
+    }
+
+    function updateGame() {
+      if (!gameRunning) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      bird.velocity += bird.gravity;
+      bird.y += bird.velocity;
+
+      drawBird();
+
+      pipes.forEach(pipe => {
+        pipe.x -= 2;
+        drawPipe(pipe);
       });
 
-      function handleClick(name) {
-        alert(`You clicked: ${name}`);
+      if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+        let top = Math.random() * 200 + 50;
+        let gap = 150;
+        pipes.push({ x: canvas.width, width: 50, top, bottom: top + gap });
       }
-    </script>
-  </body>
+
+      if (pipes.length > 0 && pipes[0].x < -50) pipes.shift();
+
+      requestAnimationFrame(updateGame);
+    }
+
+    function flap() {
+      bird.velocity = bird.lift;
+    }
+
+    function startGame() {
+      document.getElementById("mainMenu").classList.add("hidden");
+      canvas.classList.remove("hidden");
+      gameRunning = true;
+      pipes = [];
+      bird.y = 150;
+      bird.velocity = 0;
+      updateGame();
+    }
+
+    window.addEventListener("keydown", flap);
+    window.addEventListener("click", flap);
+
+    if (window.Telegram && window.Telegram.WebApp) {
+      Telegram.WebApp.expand();
+    }
+  </script>
+</body>
 </html>
 
