@@ -29,7 +29,7 @@ function startGame() {
 
 function jump() {
   if (isGameOver) {
-    startGame(); // restart
+    startGame();
   } else {
     bird.velocity = bird.jumpStrength;
   }
