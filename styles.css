@@ -28,24 +28,16 @@ body {
 
 .top-bar {
   position: absolute;
-  top: 10px;
+  top: 16px;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Тепер елементи вирівняні по лівому краю */
+  align-items: center;
+  gap: 12px; /* Трошки більша відстань між блоками */
+  padding-left: 14px; /* Відступ від краю екрану */
   z-index: 5;
 }
-.top-bar-wrapper {
-  display: flex;
-  gap: 16px;
-  padding: 0 16px;
-  max-width: 100%;
-  box-sizing: border-box;
-  justify-content: center; /* Центруємо */
-  flex-wrap: nowrap;
-  overflow-x: auto; /* Якщо екран занадто вузький */
-}
-
 
 .stat {
   display: flex;
