@@ -130,15 +130,6 @@ body {
   transition: all 0.15s ease;
 }
 
-
-  margin: 24px auto 100px auto;
-  display: block;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-  transition: all 0.15s ease;
-}
-
 .bottom-menu {
   position: fixed;
   left: 0;
