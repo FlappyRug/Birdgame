@@ -54,7 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px; /* знижує все вниз */
+  margin-top: 40px; /* було 80px */
   z-index: 2;
 }
 .character-wrapper {
@@ -64,7 +64,7 @@ body {
 }
 .character {
   position: absolute;
-  bottom: 50px; /* трохи вище п’єдестала */
+  bottom: 40px; /* було 50px */
   width: 175px;
   left: 50%;
   transform: translateX(-50%);
@@ -77,17 +77,22 @@ body {
   z-index: 1;
 }
 .stage-label {
-  margin-top: 20px;
-  padding: 12px 32px;
-  font-size: 18px;
-  font-weight: 800;
+  margin-top: 24px;
+  padding: 12px 36px;
+  font-size: 20px;
+  font-weight: 900;
   text-align: center;
   color: #ffffff;
   background: #1c3e67;
   border-radius: 16px;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  border: 4px solid #1c3e67;
   box-shadow:
-    0 0 0 3px #28496d,
-    0 0 0 6px #0c0c0c;
+    0 0 0 2px #ffffff,
+    0 0 0 5px #0b0b0b,
+    0 4px 8px rgba(0,0,0,0.25);
   text-shadow: 0 2px 2px rgba(0,0,0,0.4);
 }
 .play-button {
@@ -101,10 +106,12 @@ body {
   box-shadow:
     0 6px 0 #bd7d0b,
     inset 0 -4px 6px rgba(255,255,255,0.2);
-  margin: 28px auto;
+  margin: 24px auto 100px auto; /* ↑↑↑ додано нижній margin */
   display: block;
   cursor: pointer;
+  z-index: 3; /* підняли над bottom-menu */
   transition: 0.1s ease;
+  position: relative;
 }
 .play-button:active {
   transform: translateY(2px);
@@ -114,7 +121,9 @@ body {
 }
 .bottom-menu {
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -124,7 +133,7 @@ body {
   background: #183c5a;
   border-top: 4px solid #2a4c71;
   padding: 13px 0 5px 0;
-  z-index: 3;
+  z-index: 2; /* нижче ніж play-button */
 }
 .menu-button {
   display: flex;
