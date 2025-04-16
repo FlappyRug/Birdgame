@@ -32,26 +32,30 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-evenly; /* ← рівні проміжки скрізь */
+  justify-content: space-between; /* змінено */
   align-items: center;
   z-index: 5;
+  padding: 0 12px; /* додано відступи */
 }
 
 .stat {
   display: flex;
   align-items: center;
-  gap: 8px;
   background: linear-gradient(to bottom, #1e2a44, #192236);
   border-radius: 14px;
   padding: 6px 12px;
   height: 48px;
-  width: 130px;
-  justify-content: space-between;
-
   border: 2px solid #0d111a;
   box-shadow:
     0 0 0 2px #324e78,
     0 4px 8px rgba(10, 15, 24, 0.8);
+  gap: 8px;
+  min-width: 110px; /* базова ширина для монет і енергії */
+  justify-content: space-between;
+}
+
+.stat:last-child {
+  min-width: 140px; /* більше місця для Lvl */
 }
 
 
