@@ -10,7 +10,6 @@ body {
   touch-action: manipulation; /* Заборонити zoom */
   background-color: #add8e6; /* запасний фон */
 }
-}
 .background {
   background-image: url('images/background.png');
   background-size: cover;
@@ -29,7 +28,7 @@ body {
 
 .top-bar {
   position: absolute;
-  top: 4px; /* Підтягуємо ближче до верху */
+  top: 16px; /* Підтягуємо ближче до верху */
   left: 0;
   right: 0;
   display: flex;
@@ -45,8 +44,8 @@ body {
   gap: 8px;
   background: linear-gradient(to bottom, #1e2a44, #192236); /* глянцевий темно-синій фон */
   border-radius: 20px; /* менш округлі грані */
-  padding: 6px 14px;
-  min-width: 130px;
+  padding: 6px 12px;
+  min-width: auto;
   height: 48px;
 
   border: 2px solid #0d111a; /* внутрішня рамка */
