@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Flappy Bird Game</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flappy Owl Game</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div id="top-bar">
-        <div class="top-icon"><img src="icons/coin.png"><span id="coins">0</span></div>
-        <div class="top-icon"><img src="icons/energy.png"><span id="energy">0</span></div>
-        <div class="top-icon"><img src="icons/fire.png"><span id="level">Level 1</span></div>
+  <div class="background"></div>
+  <div class="top-bar">
+    <div class="stat">
+      <img src="images/coin.png" alt="Coins"/>
+      <span>0</span>
     </div>
-    <div id="main">
-        <img id="pedestal" src="images/pedestal.png">
-        <img id="bird" src="images/bird.png">
-        <div id="stage-info">Stage: Baby<br>Level: 1</div>
-        <button id="play-btn" onclick="startGame()">PLAY</button>
+    <div class="stat">
+      <img src="images/energy.png" alt="Energy"/>
+      <span>0</span>
     </div>
-    <div id="bottom-menu">
-        <div class="menu-btn"><img src="icons/customize.png"><span>CUSTOMIZE</span></div>
-        <div class="menu-btn"><img src="icons/quests.png"><span>QUESTS</span></div>
-        <div class="menu-btn"><img src="icons/friends.png"><span>FRIENDS</span></div>
-        <div class="menu-btn"><img src="icons/leaderboard.png"><span>LEADERBOARD</span></div>
-        <div class="menu-btn"><img src="icons/shop.png"><span>SHOP</span></div>
+    <div class="stat">
+      <img src="images/fire.png" alt="Level"/>
+      <span>Level 1</span>
     </div>
-    <script src="js/main.js"></script>
+  </div>
+
+  <div class="character-container">
+    <img src="images/pedestal.png" alt="Pedestal" class="pedestal"/>
+    <img src="images/owl.png" alt="Owl Character" class="character"/>
+    <div class="stage-label">Stage: Baby<br/>Level: 1</div>
+  </div>
+
+  <button class="play-button">PLAY</button>
+
+  <div class="bottom-menu">
+    <div class="menu-button">
+      <img src="images/shirt.png" alt="Customize"/>
+      <span>CUSTOMIZE</span>
+    </div>
+    <div class="menu-button">
+      <img src="images/scroll.png" alt="Quests"/>
+      <span>QUESTS</span>
+    </div>
+    <div class="menu-button">
+      <img src="images/friends.png" alt="Friends"/>
+      <span>FRIENDS</span>
+    </div>
+    <div class="menu-button">
+      <img src="images/trophy.png" alt="Leaderboard"/>
+      <span>LEADERBOARD</span>
+    </div>
+    <div class="menu-button">
+      <img src="images/shop.png" alt="Shop"/>
+      <span>SHOP</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
