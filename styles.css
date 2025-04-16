@@ -25,13 +25,6 @@ body {
   user-select: none;
   touch-action: none;
 }
-.top-bar-wrapper {
-  display: flex;
-  gap: 16px;
-  padding: 0 16px;
-  max-width: 100%;
-  box-sizing: border-box;
-}
 
 .top-bar {
   position: absolute;
@@ -42,6 +35,14 @@ body {
   justify-content: center;
   z-index: 5;
 }
+.top-bar-wrapper {
+  display: flex;
+  gap: 16px; /* відстань між блоками */
+  padding: 0 16px; /* відступ зліва і справа */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 
 .stat {
   display: flex;
