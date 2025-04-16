@@ -63,20 +63,11 @@ body {
 }
 
 .stat span {
-  font-size: 22px;
-  font-weight: bold;
-  font-family: 'Fredoka', sans-serif;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-}
-.stat span.level-text {
+  font-size: 26px;
+  font-weight: 700;
   font-family: 'Poppins', 'Montserrat', 'Rubik', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
   color: #ffffff;
-  text-shadow: 1px 1px 2px #000000;
-  text-transform: none; /* перша літера велика, як у макеті */
-  text-align: center;
+  text-shadow: 1px 1px 2px #000;
 }
 
 .character-container {
