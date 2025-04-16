@@ -96,40 +96,38 @@ body {
   text-shadow: 0 2px 2px rgba(0,0,0,0.4);
 }
 .play-button {
-  font-size: 36px; /* збільшили */
+  font-size: 40px; /* 🔁 БУЛО: 36px — тепер трохи більше */
   font-weight: 900;
   font-family: 'Fredoka', 'Baloo', 'Comic Neue', sans-serif;
-  color: white;
+  color: #ffe3c4; /* 🔁 БУЛО: white — тілесний теплий відтінок */
   padding: 18px 70px;
-  background: linear-gradient(180deg, #ffc557 0%, #e47c11 100%);
-  border-radius: 20px; /* прямокутна з м’якими кутами */
-  border: 4px solid #000000; /* товстіша чорна рамка */
+  background: linear-gradient(180deg, #ffb630 0%, #d86400 100%); 
+  /* 🔁 БУЛО: #ffc557 → #ffb630 (жовтіше), #e47c11 → #d86400 (глибше) */
+  
+  border-radius: 20px;
+  border: 4px solid #000000;
+
   box-shadow:
     inset 0 -4px 6px rgba(0, 0, 0, 0.3),
     0 4px 10px rgba(0, 0, 0, 0.2);
+
   text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000; /* чорна обводка навколо літер */
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0px  2px 0 #000,
+     2px  0px 0 #000,
+    -2px  0px 0 #000,
+     0px -2px 0 #000; 
+  /* 🔁 Замість -1px/1px — зроблено товстіше, для насиченої обводки */
+
   margin: 24px auto 100px auto;
   display: block;
   cursor: pointer;
   position: relative;
   z-index: 3;
   transition: all 0.15s ease;
-}
-
-.play-button:hover {
-  filter: brightness(1.05);
-  transform: translateY(-2px);
-}
-
-.play-button:active {
-  transform: translateY(2px);
-  box-shadow:
-    inset 0 -2px 3px rgba(0, 0, 0, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.2);
 }
 .bottom-menu {
   position: fixed;
