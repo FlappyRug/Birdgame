@@ -54,8 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 80px; /* знижує все вниз */
   z-index: 2;
 }
 .character-wrapper {
@@ -63,10 +62,9 @@ body {
   width: 220px;
   height: 210px;
 }
-
 .character {
   position: absolute;
-  bottom: 35px; /* було 60px */
+  bottom: 50px; /* трохи вище п’єдестала */
   width: 175px;
   left: 50%;
   transform: translateX(-50%);
@@ -79,38 +77,40 @@ body {
   z-index: 1;
 }
 .stage-label {
-  background: #173c60;
-  color: white;
-  padding: 14px 32px;
-  border-radius: 14px;
-  font-weight: 800;
+  margin-top: 20px;
+  padding: 12px 32px;
   font-size: 18px;
+  font-weight: 800;
   text-align: center;
-  margin-top: 14px;
-  border: 4px solid #ffffff;
+  color: #ffffff;
+  background: #1c3e67;
+  border-radius: 16px;
   box-shadow:
-    inset 0 2px 6px rgba(255,255,255,0.1),
-    0 4px 8px rgba(0,0,0,0.3);
+    0 0 0 3px #28496d,
+    0 0 0 6px #0c0c0c;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.4);
 }
 .play-button {
-  background: linear-gradient(180deg, #ffce47 0%, #f49b00 100%);
-  color: #fff;
-  font-weight: 900;
+  background: linear-gradient(180deg, #ffd35a 0%, #f49b00 100%);
+  color: white;
   font-size: 30px;
-  border: 3px solid #fbe29a;
-  padding: 16px 50px;
+  font-weight: 900;
   border-radius: 18px;
-  box-shadow: 0 6px 0 #c27d00;
-  margin: 20px auto;
-  cursor: pointer;
-  outline: none;
+  padding: 16px 60px;
+  border: 3px solid #fceaad;
+  box-shadow:
+    0 6px 0 #bd7d0b,
+    inset 0 -4px 6px rgba(255,255,255,0.2);
+  margin: 28px auto;
   display: block;
-  z-index: 2;
-  transition: all 0.1s ease;
+  cursor: pointer;
+  transition: 0.1s ease;
 }
 .play-button:active {
   transform: translateY(2px);
-  box-shadow: 0 3px 0 #c27d00;
+  box-shadow:
+    0 3px 0 #bd7d0b,
+    inset 0 -2px 3px rgba(255,255,255,0.2);
 }
 .bottom-menu {
   position: fixed;
