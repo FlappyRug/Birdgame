@@ -32,22 +32,31 @@ body {
   margin: 18px auto 0 auto;
 }
 .stat {
-  background: #173c60;
-  color: white;
-  border-radius: 14px;
-  padding: 8px 16px;
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-weight: bold;
-  font-size: 17px;
-  box-shadow: 0 2px 6px rgba(30,60,90,0.14);
-  min-width: 90px;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background: linear-gradient(to bottom, #1f2e4a, #1c2943); /* темно-синій фон з градієнтом */
+  border-radius: 30px; /* м’які краї */
+  padding: 6px 14px;
+  height: 50px;
+  min-width: 120px;
+  border: 2px solid #0a0f18; /* чорна внутрішня рамка */
+  box-shadow:
+    0 0 0 3px #2c446b,   /* світліший синій шар */
+    0 4px 8px #0a0f18;   /* зовнішній темний шар */
 }
 .stat img {
   width: 28px;
   height: 28px;
+  object-fit: contain;
+}
+.stat span {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: 'Fredoka', 'Baloo', 'Comic Neue', sans-serif;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000; /* для кращої видимості */
 }
 .character-container {
   position: relative;
