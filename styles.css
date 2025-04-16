@@ -29,8 +29,6 @@ body {
 .top-bar {
   position: absolute;
   top: 16px;
-  left: 12;
-  right: 12;
   display: flex;
   justify-content: space-between;
   align-items: center;
