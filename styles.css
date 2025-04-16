@@ -96,40 +96,40 @@ body {
   text-shadow: 0 2px 2px rgba(0,0,0,0.4);
 }
 .play-button {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 900;
-  font-family: 'Fredoka', 'Baloo', 'Luckiest Guy', sans-serif;
-  color: white;
-  padding: 20px 76px;
-  background: linear-gradient(180deg, #ffe9a8 0%, #f18a0c 100%);
-  border-radius: 16px; /* м’яке заокруглення */
-  border: 3px solid #000000; /* тонка чорна рамка */
+  font-family: 'Fredoka', sans-serif;
+  color: #fffaf0;
+  padding: 18px 64px;
+  background: linear-gradient(180deg, #fce084 0%, #e18728 100%);
+  border-radius: 14px;
+  border: 4px solid #2c1d00;
   box-shadow:
-    inset 0 -4px 6px rgba(0, 0, 0, 0.25),  /* внутрішня тінь */
-    0 6px 10px rgba(40, 20, 0, 0.3);       /* мʼяка тінь вниз */
+    inset 0 4px 6px rgba(255, 255, 255, 0.5), /* внутрішня світла тінь зверху */
+    0 6px 0 #a3500c; /* темна зовнішня тінь вниз */
   text-shadow:
-    -2px -1px 0 #2b1b00,
-    2px -1px 0 #2b1b00,
-    -1px 2px 0 #2b1b00,
-    2px 2px 0 #2b1b00; /* товста темно-коричнева обводка тексту */
+    -2px 0 #3a2308,
+     0 2px #3a2308,
+     2px 0 #3a2308,
+     0 -2px #3a2308; /* товста темна обводка навколо тексту */
   margin: 28px auto 100px auto;
   display: block;
   cursor: pointer;
   position: relative;
   z-index: 3;
-  transition: transform 0.1s ease, filter 0.2s ease;
-  letter-spacing: 0.5px;
-  transform: scaleX(0.95); /* трохи стиснуто по ширині */
+  transition: transform 0.1s ease, filter 0.15s ease;
 }
+
 .play-button:hover {
-  transform: translateY(-2px) scaleX(0.95);
+  transform: translateY(-2px);
   filter: brightness(1.05);
 }
+
 .play-button:active {
-  transform: translateY(2px) scaleX(0.95);
+  transform: translateY(1px);
   box-shadow:
-    inset 0 -2px 3px rgba(0, 0, 0, 0.3),
-    0 3px 6px rgba(40, 20, 0, 0.2);
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    0 3px 0 #a3500c;
 }
 .bottom-menu {
   position: fixed;
