@@ -32,12 +32,12 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* ✅ однаково між блоками */
   align-items: center;
-  gap: 12px;
-  padding: 0 10px;
+  padding: 0 16px; /* ✅ однаковий відступ до країв */
   z-index: 5;
 }
+
 
 .stat {
   display: flex;
