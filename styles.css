@@ -190,3 +190,11 @@ body {
 .menu-button span {
   margin-top: 0px;
 }
+.level-text {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Poppins', 'Montserrat', 'Rubik', sans-serif;
+  color: #FFD700;
+  text-shadow: 1px 1px 2px #000;
+  white-space: nowrap;
+}
