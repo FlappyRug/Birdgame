@@ -25,29 +25,20 @@ body {
   user-select: none;
   touch-action: none;
 }
-
 .top-bar {
   position: absolute;
   top: 4px;
   left: 0;
   right: 0;
-  max-width: 100%; /* ✅ не дозволяє виходити за межі */
   display: flex;
-  justify-content: space-between; /* ✅ рівні відступи */
   align-items: center;
-  padding: 0 10px; /* ✅ лівий і правий відступ */
-  gap: 10px; /* ✅ відстань між блоками */
+  gap: 12px; /* 🔁 однакова відстань між блоками */
+  padding: 0 12px; /* 🔁 однакові відступи зліва і справа */
   z-index: 5;
-  flex-wrap: nowrap; /* ✅ ніколи не переносить на новий ряд */
+  flex-wrap: nowrap; /* не переносити рядки */
   box-sizing: border-box;
 }
-
-
-
 .stat {
-  flex: 1 1 0;
-  max-width: 33%;
-  min-width: 100px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -55,6 +46,7 @@ body {
   border-radius: 14px;
   padding: 6px 12px;
   height: 48px;
+
   border: 2px solid #0d111a;
   box-shadow:
     0 0 0 2px #324e78,
