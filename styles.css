@@ -37,10 +37,13 @@ body {
 }
 .top-bar-wrapper {
   display: flex;
-  gap: 16px; /* відстань між блоками */
-  padding: 0 16px; /* відступ зліва і справа */
+  gap: 16px;
+  padding: 0 16px;
   max-width: 100%;
   box-sizing: border-box;
+  justify-content: center; /* Центруємо */
+  flex-wrap: nowrap;
+  overflow-x: auto; /* Якщо екран занадто вузький */
 }
 
 
