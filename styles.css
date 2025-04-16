@@ -96,12 +96,13 @@ body {
   text-shadow: 0 2px 2px rgba(0,0,0,0.4);
 }
 .play-button {
-  font-size: 60px; /* тільки текст став більшим */
+  width: 380px;         /* 🔒 Фіксована ширина */
+  height: 100px;        /* 🔒 Фіксована висота */
+  font-size: 60px;      /* ✅ Більший текст */
+  line-height: 100px;   /* ✅ Центрує текст по вертикалі */
   font-weight: 900;
   font-family: 'Fredoka', 'Baloo', 'Comic Neue', sans-serif;
   color: #ffe3c4;
-
-  padding: 18px 70px; /* 🔁 ПОВЕРНУЛИ padding назад — кнопка лишається як була */
 
   background: linear-gradient(180deg, #ffb630 0%, #d86400 100%);
   border-radius: 20px;
@@ -111,9 +112,10 @@ body {
     inset 0 -4px 6px rgba(0, 0, 0, 0.3),
     0 4px 10px rgba(0, 0, 0, 0.2);
 
-  -webkit-text-stroke: 2.2px #000000; /* чорна, рівна обводка */
+  -webkit-text-stroke: 2.2px #000000;
   text-shadow: none;
 
+  text-align: center;
   margin: 24px auto 100px auto;
   display: block;
   cursor: pointer;
@@ -133,6 +135,7 @@ body {
     inset 0 -2px 3px rgba(0, 0, 0, 0.4),
     0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
 
 
   margin: 24px auto 100px auto;
