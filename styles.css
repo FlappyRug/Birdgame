@@ -28,15 +28,17 @@ body {
 
 .top-bar {
   position: absolute;
-  top: 16px; /* Підтягуємо ближче до верху */
+  top: 4px;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start; /* Тепер елементи вирівняні по лівому краю */
   align-items: center;
-  gap: 8px;
+  gap: 12px; /* Трошки більша відстань між блоками */
+  padding-left: 14px; /* Відступ від краю екрану */
   z-index: 5;
 }
+
 
 .stat {
   display: flex;
