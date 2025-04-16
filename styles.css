@@ -32,26 +32,27 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between; /* змінено */
+  justify-content: center;
   align-items: center;
+  gap: 12px;
+  padding: 0 10px;
   z-index: 5;
-  padding: 0 12px; /* додано відступи */
 }
 
 .stat {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  width: 120px; /* фіксована ширина для стабільності */
   background: linear-gradient(to bottom, #1e2a44, #192236);
   border-radius: 14px;
-  padding: 6px 12px;
-  width: 120px; /* ← фіксована ширина, підлаштуй під свій макет */
+  padding: 6px 10px;
   height: 48px;
-
+  flex-shrink: 0;
   border: 2px solid #0d111a;
   box-shadow:
     0 0 0 2px #324e78,
     0 4px 8px rgba(10, 15, 24, 0.8);
+  gap: 8px;
 }
 
 .stat:last-child {
@@ -71,14 +72,14 @@ body {
 }
 
 .stat span {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   font-family: 'Poppins', 'Montserrat', 'Rubik', sans-serif;
   color: #ffffff;
   text-shadow: 1px 1px 2px #000;
   white-space: nowrap;
-  overflow: visible;
-  text-overflow: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .character-container {
   position: relative;
