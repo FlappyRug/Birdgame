@@ -96,18 +96,15 @@ body {
   text-shadow: 0 2px 2px rgba(0,0,0,0.4);
 }
 .play-button {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 900;
-  font-family: 'Arial Rounded MT Bold', sans-serif;
+  font-family: 'Arial Black', sans-serif;
   color: white;
-  padding: 16px 64px;
-  background: linear-gradient(180deg, #ffe37e 0%, #ff9f1c 100%);
-  border-radius: 18px;
-  border: 4px solid #102a45; /* темно-синя рамка */
-  box-shadow:
-    0 6px 0 #c17500,
-    0 0 0 4px #ffffff,
-    0 8px 16px rgba(0,0,0,0.25);
+  padding: 20px 60px;
+  background: linear-gradient(to bottom, #ffd44d, #ff9900);
+  border-radius: 16px;
+  border: 4px solid #0b3b6f; /* темно-синя рамка */
+  box-shadow: 0 8px 0 #cc7a00, 0 8px 15px rgba(0, 0, 0, 0.3);
   text-shadow: 0 2px 3px rgba(0,0,0,0.5);
   margin: 28px auto 100px auto;
   display: block;
@@ -118,19 +115,13 @@ body {
 }
 
 .play-button:hover {
-  filter: brightness(1.05);
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 0 #c17500,
-    0 0 0 4px #ffffff,
-    0 10px 20px rgba(0,0,0,0.3);
+  filter: brightness(1.1);
+  transform: translateY(-4px);
+   box-shadow: 0 12px 0 #cc7a00, 0 12px 20px rgba(0, 0, 0, 0.4);
 }
 .play-button:active {
   transform: translateY(2px);
-  box-shadow:
-    0 4px 0 #c17500,
-    0 0 0 4px #ffffff,
-    0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 0 #cc7a00, 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .bottom-menu {
   position: fixed;
