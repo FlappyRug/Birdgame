@@ -27,13 +27,14 @@ body {
 }
 .top-bar {
   position: absolute;
-  top: 16px;
+  top: 4px;
   left: 0;
   right: 0;
   display: flex;
+  justify-content: center; /* центруємо всі блоки */
   align-items: center;
-  gap: 10px; /* 🔁 однакова відстань між блоками */
-  padding: 10 10x; /* 🔁 однакові відступи зліва і справа */
+  gap: 16px;
+  padding: 0 16px; /* однакові відступи від країв */
   z-index: 5;
   flex-wrap: nowrap; /* не переносити рядки */
   box-sizing: border-box;
