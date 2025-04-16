@@ -37,7 +37,7 @@ function formatBalance(value) {
 }
 
 // 5. Оновлення монет на екрані
-function updateBalanceDisplay(10000) {
+function updateBalanceDisplay() {
   const el = document.querySelector('.balance-value');
   if (el) el.textContent = formatBalance(currentCoins);
 }
@@ -94,5 +94,10 @@ updateLevelStatus();
 
 
 // 5. Початкове відображення
+updateBalanceDisplay();
+
+// ТЕСТОВІ ДАНІ: тимчасово встановити 10k монет і 10k енергії
+currentCoins = 10000;
+currentEnergy = 10000;
 updateBalanceDisplay();
 
