@@ -31,17 +31,23 @@ body {
   top: 4px;
   left: 0;
   right: 0;
+  max-width: 100%; /* ✅ не дозволяє виходити за межі */
   display: flex;
-  flex-wrap: wrap; /* ✅ дозволяє переносити блоки */
-  justify-content: flex-start;
+  justify-content: space-between; /* ✅ рівні відступи */
   align-items: center;
-  padding: 0 12px; /* ✅ рівні відступи з боків */
-  gap: 12px;       /* ✅ рівний відступ між блоками */
+  padding: 0 10px; /* ✅ лівий і правий відступ */
+  gap: 10px; /* ✅ відстань між блоками */
   z-index: 5;
+  flex-wrap: nowrap; /* ✅ ніколи не переносить на новий ряд */
+  box-sizing: border-box;
 }
 
 
+
 .stat {
+  flex: 1 1 0;
+  max-width: 33%;
+  min-width: 100px;
   display: flex;
   align-items: center;
   gap: 8px;
