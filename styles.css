@@ -25,20 +25,24 @@ body {
   user-select: none;
   touch-action: none;
 }
+.top-bar-wrapper {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .top-bar {
   position: absolute;
-  top: 4px;
+  top: 10px;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center; /* центруємо всі блоки */
-  align-items: center;
-  gap: 16px;
-  padding: 0 16px; /* однакові відступи від країв */
+  justify-content: center;
   z-index: 5;
-  flex-wrap: nowrap; /* не переносити рядки */
-  box-sizing: border-box;
 }
+
 .stat {
   display: flex;
   align-items: center;
