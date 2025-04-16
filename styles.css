@@ -22,29 +22,31 @@ body {
   z-index: 0;
 }
 .top-bar {
-  position: relative;
-  z-index: 2;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  max-width: 500px;
-  margin: 18px auto 0 auto;
+  padding: 10px;
+  gap: 8px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 5;
 }
 .stat {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  background: linear-gradient(to bottom, #1f2e4a, #1c2943); /* темно-синій фон з градієнтом */
-  border-radius: 30px; /* м’які краї */
+  gap: 8px;
+  background: linear-gradient(to bottom, #1e2a44, #192236); /* глянцевий темно-синій фон */
+  border-radius: 20px; /* менш округлі грані */
   padding: 6px 14px;
-  height: 50px;
-  min-width: 120px;
-  border: 2px solid #0a0f18; /* чорна внутрішня рамка */
+  min-width: 130px;
+  height: 48px;
+
+  border: 2px solid #0d111a; /* внутрішня рамка */
   box-shadow:
-    0 0 0 3px #2c446b,   /* світліший синій шар */
-    0 4px 8px #0a0f18;   /* зовнішній темний шар */
+    0 0 0 2px #324e78, /* світліший синій обвід */
+    0 4px 8px rgba(10, 15, 24, 0.8); /* зовнішня тінь */
 }
 .stat img {
   width: 28px;
@@ -52,11 +54,11 @@ body {
   object-fit: contain;
 }
 .stat span {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 900;
   font-family: 'Fredoka', 'Baloo', 'Comic Neue', sans-serif;
   color: #ffffff;
-  text-shadow: 1px 1px 2px #000000; /* для кращої видимості */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* мультяшна контрастна тінь */
 }
 .character-container {
   position: relative;
