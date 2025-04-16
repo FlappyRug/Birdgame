@@ -45,12 +45,15 @@ body {
   border-radius: 14px;
   padding: 6px 12px;
   height: 48px;
+  width: 130px;
+  justify-content: space-between;
 
   border: 2px solid #0d111a;
   box-shadow:
     0 0 0 2px #324e78,
     0 4px 8px rgba(10, 15, 24, 0.8);
 }
+
 
 .stat img {
   width: 42px;
@@ -198,3 +201,5 @@ body {
   text-shadow: 1px 1px 2px #000;
   white-space: nowrap;
 }
+
+
