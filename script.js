@@ -37,7 +37,7 @@ function formatBalance(value) {
 }
 
 // 5. Оновлення монет на екрані
-function updateBalanceDisplay() {
+function updateBalanceDisplay(10000) {
   const el = document.querySelector('.balance-value');
   if (el) el.textContent = formatBalance(currentCoins);
 }
