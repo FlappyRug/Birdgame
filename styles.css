@@ -43,7 +43,7 @@ body {
   align-items: center;
   gap: 8px;
   background: linear-gradient(to bottom, #1e2a44, #192236); /* глянцевий темно-синій фон */
-  border-radius: 20px; /* менш округлі грані */
+  border-radius: 14px; /* менш округлі грані */
   padding: 6px 12px;
   min-width: auto;
   height: 48px;
