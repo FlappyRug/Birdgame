@@ -5,34 +5,40 @@
   font-family: 'Arial', sans-serif;
 }
 body {
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-  background: #87cdf7;
+  margin: 0;
+  overflow: hidden; /* Заборонити прокрутку */
+  touch-action: manipulation; /* Заборонити zoom */
+  background-color: #add8e6; /* запасний фон */
+}
 }
 .background {
-  position: fixed;
-  inset: 0;
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed; /* щоб фон був статичним */
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('images/background.png') no-repeat center center;
-  background-size: cover;
-  z-index: 0;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  touch-action: none;
 }
+
 .top-bar {
+  position: absolute;
+  top: 4px; /* Підтягуємо ближче до верху */
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
   gap: 8px;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
   z-index: 5;
 }
+
 .stat {
   display: flex;
   align-items: center;
@@ -49,17 +55,19 @@ body {
     0 4px 8px rgba(10, 15, 24, 0.8); /* зовнішня тінь */
 }
 .stat img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
 }
+
 .stat span {
   font-size: 22px;
-  font-weight: 900;
-  font-family: 'Fredoka', 'Baloo', 'Comic Neue', sans-serif;
-  color: #ffffff;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* мультяшна контрастна тінь */
+  font-weight: bold;
+  font-family: 'Fredoka', sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
+
 .character-container {
   position: relative;
   display: flex;
