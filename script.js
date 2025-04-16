@@ -1,11 +1,9 @@
-// ========== GAME SCRIPT ==========
-
-// --- Кнопка Play ---
+// Кнопка Play
 document.querySelector('.play-button').addEventListener('click', () => {
   console.log('Play button clicked');
 });
 
-// --- Меню ---
+// Меню
 document.querySelectorAll('.menu-button').forEach((btn, i) => {
   btn.addEventListener('click', () => {
     switch (i) {
@@ -18,33 +16,35 @@ document.querySelectorAll('.menu-button').forEach((btn, i) => {
   });
 });
 
-// --- Дані користувача ---
+// ======== COINS + ENERGY + LEVELS ========
+
+// 1. Дані зберігаються в localStorage
 let currentCoins = parseInt(localStorage.getItem('coins')) || 0;
 let currentEnergy = parseInt(localStorage.getItem('energy')) || 0;
 let progress = parseInt(localStorage.getItem('progress')) || 0;
 
-// --- Рівні ---
+// 2. Рівні: 0, 333, 666, 999
 const levelThresholds = [0, 333, 666, 999];
 let currentLevel = 1;
 let allLevelsUnlocked = false;
 
-// --- Формат чисел (0, 999, 1.2k, 1M) ---
+// 3. Форматування числа
 function formatBalance(value) {
   if (value < 1000) return value.toString();
   if (value < 1000000) return (value / 1000).toFixed(1).replace('.0', '') + 'k';
   return (value / 1000000).toFixed(1).replace('.0', '') + 'M';
 }
 
-// --- Оновити баланс на екрані ---
+// 4. Оновлення чисел на екрані
 function updateBalanceDisplay() {
-  const statSpans = document.querySelectorAll('.balance-value');
-  if (statSpans.length >= 2) {
-    statSpans[0].textContent = formatBalance(currentCoins);
-    statSpans[1].textContent = formatBalance(currentEnergy);
-  }
+  const coinEl = document.querySelector('.balance-value.coins');
+  const energyEl = document.querySelector('.balance-value.energy');
+
+  if (coinEl) coinEl.textContent = formatBalance(currentCoins);
+  if (energyEl) energyEl.textContent = formatBalance(currentEnergy);
 }
 
-// --- Оновити рівень ---
+// 5. Оновлення рівня
 function updateLevelStatus() {
   if (progress >= levelThresholds[3]) {
     allLevelsUnlocked = true;
@@ -57,11 +57,11 @@ function updateLevelStatus() {
   } else {
     currentLevel = 1;
   }
-  document.querySelector('.level-text').textContent = `Lvl ${currentLevel}`;
-  console.log(`Ваш рівень: ${currentLevel}`);
+  const levelEl = document.querySelector('.level-text');
+  if (levelEl) levelEl.textContent = 'Lvl ' + currentLevel;
 }
 
-// --- Коли гравець проходить перешкоду ---
+// 6. Прохід перешкоди
 function onPassObstacle() {
   progress += 1;
   currentCoins += 1;
@@ -71,30 +71,31 @@ function onPassObstacle() {
 
   updateBalanceDisplay();
   updateLevelStatus();
-
   console.log(`+1 монета! Всього: ${currentCoins}, Прогрес: ${progress}`);
 }
 
-// --- Вибір рівня вручну ---
+// 7. Вибір рівня вручну після відкриття
 function chooseLevel(lvl) {
   if (!allLevelsUnlocked) {
     console.log("Ще не доступно. Спочатку потрібно пройти всі рівні.");
     return;
   }
+
   if (lvl < 1 || lvl > 3) {
     console.log("Невірний рівень.");
     return;
   }
+
   currentLevel = lvl;
-  console.log(`Обрано рівень: ${currentLevel}`);
   updateLevelStatus();
+  console.log(`Обрано рівень: ${currentLevel}`);
 }
 
-// --- Початкове відображення ---
+// 8. Початковий рендер
 updateBalanceDisplay();
 updateLevelStatus();
 
-// --- Тестові значення ---
+// ======= ТЕСТОВІ ДАНІ =======
 currentCoins = 10000;
 currentEnergy = 10000;
 updateBalanceDisplay();
