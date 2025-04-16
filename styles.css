@@ -32,7 +32,7 @@ body {
   left: 12;
   right: 12;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
   z-index: 5;
