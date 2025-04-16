@@ -54,9 +54,9 @@ body {
     0 4px 8px rgba(10, 15, 24, 0.8); /* зовнішня тінь */
 }
 .stat img {
-  width: 32px;
-  height: 32px;
-  margin-right: 6px;
+  width: 42px;
+  height: 42px;
+  margin-right: 8px;
 }
 
 .stat span {
