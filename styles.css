@@ -25,18 +25,31 @@ body {
   user-select: none;
   touch-action: none;
 }
-
 .top-bar {
   position: absolute;
   top: 16px;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between; /* ✅ однаково між блоками */
+  justify-content: center;
   align-items: center;
-  padding: 0 16px; /* ✅ однаковий відступ до країв */
   z-index: 5;
 }
+
+.top-bar > .stat {
+  flex: 1;
+  max-width: 130px; /* Ширина кожного блоку */
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar::before,
+.top-bar::after {
+  content: '';
+  flex: 1;
+  max-width: 16px; /* Відступи зліва і справа */
+}
+
 
 
 .stat {
