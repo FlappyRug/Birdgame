@@ -55,7 +55,7 @@ body {
 .stat img {
   width: 42px;
   height: 42px;
-  margin-right: 8px;
+  margin-right: 4px;
   margin-left: -9px
 }
 .stat img[alt="Coins"] {
@@ -63,7 +63,7 @@ body {
 }
 
 .stat span {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 700;
   font-family: 'Poppins', 'Montserrat', 'Rubik', sans-serif;
   color: #ffffff;
