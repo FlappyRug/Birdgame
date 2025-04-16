@@ -61,13 +61,6 @@ body {
 .stat img[alt="Coins"] {
   margin-left: -6px;
 }
-.stat img[alt="Energy"] {
-  margin-left: -3px;
-}
-
-.stat img[alt="Level"] {
-  margin-left: -2px;
-}
 
 .stat span {
   font-size: 22px;
