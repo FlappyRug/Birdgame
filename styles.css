@@ -70,18 +70,15 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 .stat span.level-text {
-  font-family: 'Baloo 2', 'Poppins', 'Rubik', sans-serif;
-  font-size: 18px; /* середній розмір */
-  font-weight: 700; /* жирний */
-  color: #FFC400; /* золотий */
-  text-transform: uppercase;
-  text-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.6),
-    -1px 0 #3a2308,
-     1px 0 #3a2308,
-     0 -1px #3a2308,
-     0  1px #3a2308; /* легкий контур */
+  font-family: 'Poppins', 'Montserrat', 'Rubik', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000;
+  text-transform: none; /* перша літера велика, як у макеті */
+  text-align: center;
 }
+
 .character-container {
   position: relative;
   display: flex;
