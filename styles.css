@@ -41,17 +41,17 @@ body {
 .stat {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: linear-gradient(to bottom, #1e2a44, #192236);
   border-radius: 14px;
   padding: 6px 12px;
+  width: 120px; /* ← фіксована ширина, підлаштуй під свій макет */
   height: 48px;
+
   border: 2px solid #0d111a;
   box-shadow:
     0 0 0 2px #324e78,
     0 4px 8px rgba(10, 15, 24, 0.8);
-  gap: 8px;
-  min-width: 110px; /* базова ширина для монет і енергії */
-  justify-content: space-between;
 }
 
 .stat:last-child {
@@ -77,8 +77,8 @@ body {
   color: #ffffff;
   text-shadow: 1px 1px 2px #000;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: unset;
 }
 .character-container {
   position: relative;
