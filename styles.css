@@ -40,34 +40,38 @@ body {
 .stat {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: linear-gradient(to bottom, #1e2a44, #192236); /* глянцевий темно-синій фон */
-  border-radius: 14px; /* менш округлі грані */
-  padding: 6px 12px;
-  min-width: auto;
-  height: 48px;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #1e2a44, #192236);
+  border-radius: 20px;
+  padding: 6px 14px;
+  min-width: 150px; /* Достатньо для 1,500+ */
+  max-width: 220px; /* Запобігає надмірному розтягуванню */
+  height: 52px;
 
-  border: 2px solid #0d111a; /* внутрішня рамка */
+  border: 2px solid #0d111a;
   box-shadow:
-    0 0 0 2px #324e78, /* світліший синій обвід */
-    0 4px 8px rgba(10, 15, 24, 0.8); /* зовнішня тінь */
+    0 0 0 2px #324e78,
+    0 4px 8px rgba(10, 15, 24, 0.8);
 }
+
 .stat img {
-  width: 42px;
-  height: 42px;
-  margin-right: 4px;
-  margin-left: -9px
-}
-.stat img[alt="Coins"] {
-  margin-left: -5px;
+  width: 34px;
+  height: 34px;
+  margin-right: 8px;
+  flex-shrink: 0; /* Щоб іконка не зменшувалась */
 }
 
 .stat span {
-  font-size: 30px;
-  font-weight: 700;
-  font-family: 'Poppins', 'Montserrat', 'Rubik', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Poppins', 'Fredoka', sans-serif;
   color: #ffffff;
   text-shadow: 1px 1px 2px #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  text-align: right;
 }
 
 .character-container {
