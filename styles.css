@@ -27,7 +27,7 @@ body {
 }
 .top-bar {
   position: absolute;
-  top: 4px;
+  top: 16px;
   left: 0;
   right: 0;
   display: flex;
