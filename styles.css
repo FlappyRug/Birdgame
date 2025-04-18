@@ -57,7 +57,7 @@ body {
   background: linear-gradient(to bottom, #1e2a44, #192236); /* кольори НЕ змінюємо */
   border-radius: 14px; /* трішки більше скруглення */
   padding: 4px 8px; /* було 4px 10px → зробимо трохи компактніше */
-  height: 42px; /* було 50px → зменшено */
+  height: 30px; /* було 50px → зменшено */
   border: 2px solid #0d111a;
   box-shadow:
     0 0 0 2px #324e78,
