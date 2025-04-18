@@ -31,8 +31,47 @@
     display: block;
   }
 </style>
+<style>
+  .game-over-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+
+  .game-over-content {
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+  }
+
+  .score-label {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #restart-button, #menu-button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background: #ffcc00;
+    color: #333;
+    cursor: pointer;
+  }
+
+  #restart-button:hover, #menu-button:hover {
+    background: #ffaa00;
+  }
+</style>
 
 </head>
+
 <body>
   <div class="background"></div>
 
@@ -88,5 +127,14 @@
   </div>
   
   <script src="script.js"></script>
+  <!-- === Game Over Overlay === -->
+<div id="game-over" style="display: none;" class="game-over-overlay">
+  <div class="game-over-content">
+    <div class="score-label">Score: <span id="score-value">0</span></div>
+    <button id="restart-button">Restart</button>
+    <button id="menu-button">Menu</button>
+  </div>
+</div>
+
 </body>
 </html>
