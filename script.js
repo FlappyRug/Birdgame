@@ -12,10 +12,10 @@ function startGame() {
   owlImg.src = 'images/owl.png';
 
   const pipeTopImg = new Image();
-  pipeTopImg.src = 'images/pipe-top.png';
+  pipeTopImg.src = 'images/pipe-top-large.png';
 
   const pipeBottomImg = new Image();
-  pipeBottomImg.src = 'images/pipe-bottom.png';
+  pipeBottomImg.src = 'images/pipe-bottom-large.png';
 
   let owlX = 80;
   let owlY = 250;
@@ -26,6 +26,7 @@ function startGame() {
   const pipeGap = 160;
   const pipeWidth = 60;
   const pipeSpacing = 240;
+  const pipeHeightFull = 1200;
   const pipes = [];
   let frameCount = 0;
   let score = 0;
@@ -35,10 +36,7 @@ function startGame() {
     const topHeight = Math.floor(Math.random() * 200) + 100;
     pipes.push({
       x: canvas.width,
-      topY: 0,
-      topH: topHeight,
-      bottomY: topHeight + pipeGap,
-      bottomH: canvas.height - (topHeight + pipeGap),
+      gapY: topHeight,
       counted: false
     });
   }
@@ -52,23 +50,18 @@ function startGame() {
     const owlTop = owlY;
     const owlBottom = owlY + owlH;
 
-    const topPipeBottom = pipe.topY + pipe.topH;
+    const pipeLeft = pipe.x;
+    const pipeRight = pipe.x + pipeWidth;
+    const pipeTopBottom = pipe.gapY;
+    const pipeBottomTop = pipe.gapY + pipeGap;
+
     if (
-      owlRight > pipe.x &&
-      owlLeft < pipe.x + pipeWidth &&
-      owlTop < topPipeBottom
+      owlRight > pipeLeft &&
+      owlLeft < pipeRight &&
+      (owlTop < pipeTopBottom || owlBottom > pipeBottomTop)
     ) {
       return true;
     }
-
-    if (
-      owlRight > pipe.x &&
-      owlLeft < pipe.x + pipeWidth &&
-      owlBottom > pipe.bottomY
-    ) {
-      return true;
-    }
-
     return false;
   }
 
@@ -92,8 +85,19 @@ function startGame() {
     pipes.forEach(pipe => {
       pipe.x -= 2;
 
-      ctx.drawImage(pipeTopImg, pipe.x, pipe.topY, pipeWidth, pipe.topH);
-      ctx.drawImage(pipeBottomImg, pipe.x, pipe.bottomY, pipeWidth, pipe.bottomH);
+      const cutTop = pipeHeightFull - pipe.gapY;
+      ctx.drawImage(
+        pipeTopImg,
+        0, cutTop, pipeWidth, pipe.gapY,
+        pipe.x, 0, pipeWidth, pipe.gapY
+      );
+
+      const bottomHeight = canvas.height - (pipe.gapY + pipeGap);
+      ctx.drawImage(
+        pipeBottomImg,
+        0, 0, pipeWidth, bottomHeight,
+        pipe.x, pipe.gapY + pipeGap, pipeWidth, bottomHeight
+      );
 
       if (checkCollision(pipe)) {
         gameOver = true;
@@ -139,7 +143,7 @@ function startGame() {
     };
   });
 
-  console.log('Game started with pipes and physics!');
+  console.log('Game started with cropped pipes!');
 }
 
 // --- Кнопка Play ---
@@ -245,4 +249,5 @@ function chooseLevel(lvl) {
 
 // --- Початкове відображення ---
 updateBalanceDisplay();
+updateLevelStatus();
 updateLevelStatus();
