@@ -1,8 +1,157 @@
 // ========== GAME SCRIPT ==========
 
+// --- Старт гри ---
+function startGame() {
+  const canvas = document.getElementById('game-canvas');
+  const ctx = canvas.getContext('2d');
+
+  const bgImg = new Image();
+  bgImg.src = 'images/bg-game.png';
+
+  const owlImg = new Image();
+  owlImg.src = 'images/owl.png';
+
+  const pipeTopImg = new Image();
+  pipeTopImg.src = 'images/pipe-top.png';
+
+  const pipeBottomImg = new Image();
+  pipeBottomImg.src = 'images/pipe-bottom.png';
+
+  let owlX = 80;
+  let owlY = 250;
+  let owlVelocity = 0;
+  const gravity = 0.5;
+  const jumpForce = -8;
+
+  const pipeGap = 160;
+  const pipeWidth = 60;
+  const pipeSpacing = 240;
+  const pipes = [];
+  let frameCount = 0;
+  let score = 0;
+  let gameOver = false;
+
+  function createPipe() {
+    const topHeight = Math.floor(Math.random() * 200) + 100;
+    pipes.push({
+      x: canvas.width,
+      topY: 0,
+      topH: topHeight,
+      bottomY: topHeight + pipeGap,
+      bottomH: canvas.height - (topHeight + pipeGap),
+      counted: false
+    });
+  }
+
+  function checkCollision(pipe) {
+    const owlW = 64;
+    const owlH = 64;
+
+    const owlLeft = owlX;
+    const owlRight = owlX + owlW;
+    const owlTop = owlY;
+    const owlBottom = owlY + owlH;
+
+    const topPipeBottom = pipe.topY + pipe.topH;
+    if (
+      owlRight > pipe.x &&
+      owlLeft < pipe.x + pipeWidth &&
+      owlTop < topPipeBottom
+    ) {
+      return true;
+    }
+
+    if (
+      owlRight > pipe.x &&
+      owlLeft < pipe.x + pipeWidth &&
+      owlBottom > pipe.bottomY
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function gameLoop() {
+    if (gameOver) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+
+    owlVelocity += gravity;
+    owlY += owlVelocity;
+
+    if (owlY > canvas.height || owlY < -64) {
+      gameOver = true;
+      console.log('Ви програли!');
+      return;
+    }
+
+    ctx.drawImage(owlImg, owlX, owlY, 64, 64);
+
+    pipes.forEach(pipe => {
+      pipe.x -= 2;
+
+      ctx.drawImage(pipeTopImg, pipe.x, pipe.topY, pipeWidth, pipe.topH);
+      ctx.drawImage(pipeBottomImg, pipe.x, pipe.bottomY, pipeWidth, pipe.bottomH);
+
+      if (checkCollision(pipe)) {
+        gameOver = true;
+        console.log('Сова вдарилась! Гра завершена.');
+      }
+
+      if (!pipe.counted && pipe.x + pipeWidth < owlX) {
+        pipe.counted = true;
+        score += 1;
+        onPassObstacle();
+        console.log(`Очки: ${score}`);
+      }
+    });
+
+    while (pipes.length && pipes[0].x < -pipeWidth) {
+      pipes.shift();
+    }
+
+    if (frameCount % pipeSpacing === 0) {
+      createPipe();
+    }
+
+    frameCount++;
+    requestAnimationFrame(gameLoop);
+  }
+
+  canvas.addEventListener('click', () => {
+    owlVelocity = jumpForce;
+  });
+  canvas.addEventListener('touchstart', () => {
+    owlVelocity = jumpForce;
+  });
+
+  const allImages = [bgImg, owlImg, pipeTopImg, pipeBottomImg];
+  let loadedImages = 0;
+
+  allImages.forEach(img => {
+    img.onload = () => {
+      loadedImages++;
+      if (loadedImages === allImages.length) {
+        gameLoop();
+      }
+    };
+  });
+
+  console.log('Game started with pipes and physics!');
+}
+
 // --- Кнопка Play ---
 document.querySelector('.play-button').addEventListener('click', () => {
-  console.log('Play button clicked');
+  document.querySelector('.top-bar').style.display = 'none';
+  document.querySelector('.character-container').style.display = 'none';
+  document.querySelector('.play-button').style.display = 'none';
+  document.querySelector('.bottom-menu').style.display = 'none';
+
+  document.getElementById('game-screen').style.display = 'block';
+
+  startGame();
 });
 
 // --- Меню ---
@@ -97,8 +246,3 @@ function chooseLevel(lvl) {
 // --- Початкове відображення ---
 updateBalanceDisplay();
 updateLevelStatus();
-
-
-// 5. Початкове відображення
-updateBalanceDisplay();
-
