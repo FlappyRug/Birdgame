@@ -250,4 +250,19 @@ function chooseLevel(lvl) {
 // --- Початкове відображення ---
 updateBalanceDisplay();
 updateLevelStatus();
-updateLevelStatus();
+
+// --- Кнопки Game Over ---
+document.getElementById('restart-button').addEventListener('click', () => {
+  document.getElementById('game-over').style.display = 'none';
+  startGame();
+});
+
+document.getElementById('menu-button').addEventListener('click', () => {
+  document.getElementById('game-over').style.display = 'none';
+  document.getElementById('game-screen').style.display = 'none';
+  document.querySelector('.top-bar').style.display = 'flex';
+  document.querySelector('.character-container').style.display = 'flex';
+  document.querySelector('.play-button').style.display = 'block';
+  document.querySelector('.bottom-menu').style.display = 'flex';
+  updateBalanceDisplay();
+});
