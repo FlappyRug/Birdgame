@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 // ========== GAME SCRIPT ==========
 
 // --- Старт гри ---
@@ -77,6 +78,8 @@ function startGame() {
     if (owlY > canvas.height || owlY < -64) {
       gameOver = true;
       console.log('Ви програли!');
+      document.getElementById('score-value').textContent = score;
+      document.getElementById('game-over').style.display = 'flex';
       return;
     }
 
@@ -102,6 +105,8 @@ function startGame() {
       if (checkCollision(pipe)) {
         gameOver = true;
         console.log('Сова вдарилась! Гра завершена.');
+        document.getElementById('score-value').textContent = score;
+        document.getElementById('game-over').style.display = 'flex';
       }
 
       if (!pipe.counted && pipe.x + pipeWidth < owlX) {
@@ -124,10 +129,7 @@ function startGame() {
     requestAnimationFrame(gameLoop);
   }
 
-  canvas.addEventListener('click', () => {
-    owlVelocity = jumpForce;
-  });
-  canvas.addEventListener('touchstart', () => {
+  canvas.addEventListener('pointerdown', () => {
     owlVelocity = jumpForce;
   });
 
@@ -138,6 +140,10 @@ function startGame() {
     img.onload = () => {
       loadedImages++;
       if (loadedImages === allImages.length) {
+        score = 0;
+        const scoreCounter = document.querySelector('.score-counter');
+      if (scoreCounter) scoreCounter.textContent = '0';
+
         gameLoop();
       }
     };
@@ -265,4 +271,5 @@ document.getElementById('menu-button').addEventListener('click', () => {
   document.querySelector('.play-button').style.display = 'block';
   document.querySelector('.bottom-menu').style.display = 'flex';
   updateBalanceDisplay();
+});
 });
