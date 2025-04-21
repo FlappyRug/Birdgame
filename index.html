@@ -141,12 +141,13 @@
   document.addEventListener("DOMContentLoaded", () => {
     if (window.Telegram && Telegram.WebApp) {
       Telegram.WebApp.ready();
-      Telegram.WebApp.expand();
+      setTimeout(() => Telegram.WebApp.expand(), 50);
     } else {
       console.warn("Telegram WebApp API не доступний");
     }
   });
 </script>
+
 
 </body>
 </html>
