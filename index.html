@@ -137,6 +137,16 @@
     <button id="menu-button">Menu</button>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.Telegram && Telegram.WebApp) {
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+    } else {
+      console.warn("Telegram WebApp API не доступний");
+    }
+  });
+</script>
 
 </body>
 </html>
