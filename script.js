@@ -243,13 +243,6 @@ function updateLevelStatus() {
   document.querySelector('.level-text').textContent = `Lvl ${currentLevel}`;
   console.log(`Ваш рівень: ${currentLevel}`);
 }
-// === Loading screen logic ===
-setTimeout(() => {
-  const loadingScreen = document.getElementById('loading-screen');
-  if (loadingScreen) {
-    loadingScreen.style.display = 'none';
-  }
-}, 2200);
 
 // --- Коли гравець проходить перешкоду ---
 function onPassObstacle() {
