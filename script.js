@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ======== FULLSCREEN FIX FOR TELEGRAM WEBAPP =========
+  if (window.Telegram && Telegram.WebApp && Telegram.WebApp.expand) {
+    Telegram.WebApp.expand();
+
+    // Safari/iOS Fullscreen fix via focus
+    setTimeout(() => {
+      const fakeInput = document.createElement('input');
+      fakeInput.style.position = 'absolute';
+      fakeInput.style.opacity = 0;
+      document.body.appendChild(fakeInput);
+      fakeInput.focus();
+      fakeInput.remove();
+    }, 200);
+  }
+
+  // HTML5 Fullscreen API fallback (optional)
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
+
 // ========== GAME SCRIPT ==========
 
 // --- Старт гри ---
